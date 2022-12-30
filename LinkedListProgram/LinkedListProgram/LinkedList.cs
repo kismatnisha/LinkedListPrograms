@@ -6,39 +6,52 @@ using System.Threading.Tasks;
 
 namespace LinkedListProgram
 {
-    internal class LinkedList
-    {
-        internal Node head;
-        internal void Add(int data)
+  
+        internal class LinkedList
         {
-            Node node = new Node(data);
-            if (this.head == null)
+            internal Node head;
+            internal void AddLast(int data)
             {
-                this.head = node;
-            }
-            else
-            {
-                Node temp = head;
-                while (temp.next != null)
+                Node Node = new Node(data);
+                if (this.head == null)
                 {
-                    temp = temp.next;
+                    this.head = Node;
                 }
-                temp.next = node;
+                else
+                {
+                    Node temp = this.head;
+                    while (temp.next != null)
+                    {
+                        temp = temp.next;
+                    }
+                    temp.next = Node;
+                }
+                Console.WriteLine("{0} is inserted into LinkedList", Node.data);
             }
-            Console.WriteLine("Inserted into Linked List :  {0}", node.data);
-        }
-        internal void Display()
-        {
-            Node temp = this.head;
-            if (temp == null)
+            internal void AddFirst(int data)
             {
-                Console.WriteLine(" Linked List is Empty ");
+                Node Node = new Node(data);
+                Node.next = this.head;
+                this.head = Node;
+                Console.WriteLine("{0} is inserted into LinkedList", Node.data);
             }
-            while (temp != null)
+            public void Display()
             {
-                Console.WriteLine(temp.data + " ");
-                temp = temp.next;
+                Console.WriteLine("Displaying Nodes:");
+                Node temp = this.head;
+                if (temp == null)
+                {
+                    Console.WriteLine("LinkedList is Empty");
+                    return;
+                }
+                else
+                {
+                    while (temp != null)
+                    {
+                        Console.Write(" " + temp.data + " ");
+                        temp = temp.next;
+                    }
+                }
             }
         }
     }
-}
