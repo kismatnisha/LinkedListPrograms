@@ -149,6 +149,38 @@ namespace LinkedListProgram
             Node next1 = temp.next.next;
             temp.next = next1;
         }
+        public void Size()
+        {
+            int size = 0;
+            Node temp = this.head;
+            while (temp != null)
+            {
+                temp = temp.next;
+                size++;
+            }
+            Console.WriteLine("\nSize of the LinkedList is {0}", size);
+        }
+        public void OrderedLinkedlist(int data)
+        {
+            Node Node = new Node(data);
+            Node currentNode = this.head, temp = null;
+            while (currentNode != null && currentNode.data < Node.data)
+            {
+                temp = currentNode;
+                currentNode = currentNode.next;
+            }
+            if (temp == null)
+            {
+                this.head = Node;
+            }
+            else
+            {
+                temp.next = Node;
+            }
+            Node.next = currentNode;
+            Console.WriteLine("{0} is inserted into ordered Linkedlist", Node.data);
+        }
+
 
     }
 }
