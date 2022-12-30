@@ -61,6 +61,15 @@ namespace LinkedListProgram
             }
             return head;
         }
+        internal Node DeleteFirstNode()
+        {
+            if (head == null)
+            {
+                return null;
+            }
+            head = head.next;
+            return head;
+        }
         public int DeleteLastNode()
         {
             Node temp = this.head;
@@ -100,6 +109,21 @@ namespace LinkedListProgram
                     temp = temp.next;
                 }
             }
+        }
+        internal Node Search(int value)
+        {
+            int Count = 1;
+            while (head != null)
+            {
+                if (head.data == value)
+                {
+                    Console.WriteLine($"\n The Value is {value} at {Count} position");
+                    return head;
+                }
+                head = head.next;
+                Count++;
+            }
+            return null;
         }
     }
 }
