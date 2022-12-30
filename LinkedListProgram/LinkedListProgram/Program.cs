@@ -8,9 +8,10 @@
 
             LinkedList linkdedList = new LinkedList();
             linkdedList.Add(56);
-            //linkdedList.Add(30);
+            linkdedList.Add(30);
             linkdedList.Add(70);
-            linkdedList.InsertAtParticularPosition(2, 30);
+            linkdedList.Display();
+            linkdedList.DeleteFirstNode();
             linkdedList.Display();
         }
     }
